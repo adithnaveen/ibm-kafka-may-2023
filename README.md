@@ -114,3 +114,17 @@
 - to create topic 
 > $ kafka-topics.sh --bootstrap-server localhost:9092 --topic first-topic --create
 
+> $ kafka-topics.sh --bootstrap-server localhost:9092 --topic second-topic --create
+
+- to start producer 
+
+> kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first-topic
+
+- to start consumer 
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first-topic
+
+- to start consumer from beginning 
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first-topic --from-beginning
+
+
+
