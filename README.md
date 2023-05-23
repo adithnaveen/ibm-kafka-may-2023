@@ -128,3 +128,23 @@
 
 
 
+- creating with 3 partitions 
+> kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition --create --partitions 3  
+
+- creating with 3 partitions + 2 replication factor(which will not work as of now since we have single cluster) 
+kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-repl --create --partitions 3 --replication-factor 2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
