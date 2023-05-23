@@ -17,6 +17,10 @@
 > Extract with softwares like 7 zip / win zip etc 
 
 * Note Windows Users: install wsl2 first -  https://docs.microsoft.com/en-us/windows/wsl/install
+-  To install wsl 
+    > wsl --install
+
+
 ### Step 3 
 > Add Kafka to system path - kafka_2.13-3.1.0/bin 
 
@@ -73,5 +77,17 @@
 - kafka was tossed by a company called LinkedIn and given to open source community Apache (Tier 1)
 - kafka is written in Scala - reactive in nature 
 
+- no of services are growing day by day 
+
+
+
+- in our arch 
+    - if kafka is down then all service communication shall not happen 
+    - we need to have backup approach of multiple clusters 
+    - we need to employ a load balancer + registry 
+
+- soln 
+    - https://zookeeper.apache.org
+    - zookeeper - ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. 
 
 
