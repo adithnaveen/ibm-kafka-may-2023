@@ -91,3 +91,26 @@
     - zookeeper - ZooKeeper is a centralized service for maintaining configuration information, naming, providing distributed synchronization, and providing group services. 
 
 
+## Commands 
+
+(for windows users pls execute .bat files in windows folder)
+
+- to start zookeeper 
+
+>  zookeeper-server-start.sh ../config/zookeeper.properties 
+
+- to start zookeeper (windows users)
+
+>  zookeeper-server-start.bat ..\..\config\zookeeper.properties 
+
+- to start kafka 
+
+> kafka-server-start.sh ../config/server.properties 
+
+- to list the topics 
+
+> $ kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+- to create topic 
+> $ kafka-topics.sh --bootstrap-server localhost:9092 --topic first-topic --create
+
