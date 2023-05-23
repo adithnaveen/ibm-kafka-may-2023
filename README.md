@@ -53,3 +53,25 @@
 
 
 
+## Notes
+
+> Rest Template is used to create applications that consume RESTful Web Services.
+> Json 
+
+- producer-consumer problem 
+- publisher always sends the message -subscriber always looks for the message(topic) and consumes
+- ESB (Enterprise Service Bus)
+    - Tibco
+    - Mule Soft 
+    - Open MQ 
+    - IBM MQ 
+    - Rabbit MQ
+    - Kafka 
+    .... 
+
+- in kafka all the messages are immutable 
+- kafka was tossed by a company called LinkedIn and given to open source community Apache (Tier 1)
+- kafka is written in Scala - reactive in nature 
+
+
+
