@@ -233,6 +233,16 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-r
 > Please Note: when the consumer is off then there shall be lag in the reading, when any grouped consumer comes then the left over messages are read implicityly 
 
 
+## reset offsets 
+
+- this will not work since --execute is missing 
+> kafka-consumer-groups.sh  --bootstrap-server localhost:9092 --group first-application --reset-offsets --to-earliest 
+
+- this will not work either you to have to give --all-topics or --topic 
+> kafka-consumer-groups.sh  --bootstrap-server localhost:9092 --group first-application --reset-offsets --to-earliest --execute 
+
+- will work and set the offset to earliest (0)
+> kafka-consumer-groups.sh  --bootstrap-server localhost:9092 --group first-application --reset-offsets --to-earliest --execute --topic topic-with-partition1
 
 
 
