@@ -21,9 +21,16 @@ https://learn.microsoft.com/en-us/windows/wsl/basic-commands
 > https://www.kafkatool.com/download.html
 
 
-
 ## saga pattern 
 > https://microservices.io/patterns/data/saga.html
+
+
+## zookeeper vs kraft 
+> https://www.confluent.io/blog/kafka-without-zookeeper-a-sneak-peek/
+
+
+
+
 
 
 

@@ -138,6 +138,81 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-r
 
 
 
+# Day 2 
+
+1. Creating partition 
+2. Implementiation of kafka with partition + consumer groups 
+    ```
+    > It is a performance goal to have all the records sent to a single partition and not multiple partitions to improve batching.
+    ```
+3. Rebalancing (shift the messages which we need)
+4. connecting kafka with programming language (Java)
+    - Eclipse 
+5. to start kafka with kraft 
+    - Kafka 2.x - Mandatory to have zookeeper 
+    - Kafka 3.x - option to have zookeeper, you can have kraft but kraft is not production ready 
+    - Kafka 4.x - will not support zookeeper 
+6. the data when it is kept it follows murmur2 algoritham 
+    - Utils.toPositive(Utils.murmur2(keyBytes)) % numPartitions;
+    - at store and inflight also 
+7. to consume public site kafka messages to our application (wiki)
+8. delete topic 
+    - to delete pls edit server.properties and add - delete.topic.enable=true
+    - 
+
+
+
+```
+- optional 
+    > copy the bin or bin/windows appropriate to your OS
+    > put it in env variables 
+```
+
+## commands / practicles 
+
+
+- staring zookeeper 
+> zookeeper-server-start.sh /Volumes/Kanchan/Softwares/kafka/kafka-3.1.0/config/zookeeper.properties 
+
+- starting kafka 
+> kafka-server-start.sh /Volumes/Kanchan/Softwares/kafka/kafka-3.1.0/config/server.properties 
+
+- list all the topics 
+> kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+- to delete topics 
+> kafka-topics.sh --bootstrap-server localhost:9092 --topic first-topic --delete
+
+- to create topic with partition (by default 1)
+> kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --create --partitions 3
+
+- start producer 
+> kafka-console-producer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1
+
+- start consumer (anonymous / without group)
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1
+
+- create a consumer but it should be part of the group 
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group first-application
+
+- create a consumer but it should be part of the group (creating one more consumer part of the same group and messages are spread here)
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group first-application
+
+
+- create another group consumer from beginning 
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group second-application --from-beginning 
+
+- create another group consumer   (the data split between 3 consumer groups)
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group second-application  
+
+- create another group consumer   (the data split between 3 consumer groups)
+> kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group second-application 
+
+
+
+
+
+
 
 
 
