@@ -244,7 +244,31 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-r
 - will work and set the offset to earliest (0)
 > kafka-consumer-groups.sh  --bootstrap-server localhost:9092 --group first-application --reset-offsets --to-earliest --execute --topic topic-with-partition1
 
+- reset by shifting (go back by 5)
+> $ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group first-application --reset-offsets --shift-by -5 --execute --topic topic-with-partition1
+
+```
+
+Consumer group 'first-application' has no active members.
+
+GROUP             TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+first-application topic-with-partition1 0          13              18              5               -               -               -
+first-application topic-with-partition1 1          15              20              5               -               -               -
+first-application topic-with-partition1 2          15              20              5               -               -               -
+```
 
 
+- reset by shifting (go ahead by 2)
+> $ kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group first-application --reset-offsets --shift-by 2 --execute --topic topic-with-partition1
+
+```
+
+Consumer group 'first-application' has no active members.
+
+GROUP             TOPIC                 PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+first-application topic-with-partition1 0          15              18              3               -               -               -
+first-application topic-with-partition1 1          17              20              3               -               -               -
+first-application topic-with-partition1 2          17              20              3               -               -               -
+```
 
 
