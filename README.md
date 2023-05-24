@@ -143,7 +143,8 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-r
 1. Creating partition 
 2. Implementiation of kafka with partition + consumer groups 
     ```
-    > It is a performance goal to have all the records sent to a single partition and not multiple partitions to improve batching.
+    > It is a performance goal to have all the records sent to a single partition and not multiple partitions to improve batching. - sticky partition (by default after 3.2 kafka)
+    > earlier to this was RoundRobin 
     ```
 3. Rebalancing (shift the messages which we need)
 4. connecting kafka with programming language (Java)
@@ -198,7 +199,6 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-r
 - create a consumer but it should be part of the group (creating one more consumer part of the same group and messages are spread here)
 > kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group first-application
 
-
 - create another group consumer from beginning 
 > kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group second-application --from-beginning 
 
@@ -208,14 +208,29 @@ kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition-r
 - create another group consumer   (the data split between 3 consumer groups)
 > kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --group second-application 
 
+- see how many paritions are there for the given topic 
+> kafka-topics.sh --bootstrap-server localhost:9092 --topic topic-with-partition --describe
+
+
+## trying to have the producer with round robin partitioner algorithm 
 
 
 
+> kafka-console-producer.sh --bootstrap-server localhost:9092 --topic topic-with-partition1 --producer-property partitioner.class=org.apache.kafka.clients.producer.RoundRobinPartitioner 
 
 
 
+# working with consumer groups 
+
+- listing  all the consumer groups 
+> kafka-consumer-groups.sh --bootstrap-server localhost:9092 --list
 
 
+- describe specific group 
+> kafka-consumer-groups.sh --bootstrap-server localhost:9092 --describe --group first-application 
+
+
+> Please Note: when the consumer is off then there shall be lag in the reading, when any grouped consumer comes then the left over messages are read implicityly 
 
 
 
