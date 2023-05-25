@@ -10,8 +10,9 @@ public class GetConnection {
 	public Connection getH2Instance() {
 		
 		try {
-			Class.forName("org.h2.Driver"); 
-			Connection conn =  DriverManager.getConnection("jdbc:h2:~/testdb", "sa",""); 
+			Class.forName("org.h2.Driver");
+			String connString ="jdbc:h2:mem:testdb"; 
+			Connection conn =  DriverManager.getConnection(connString + ";DB_CLOSE_DELAY=-1", "sa",""); 
 			return conn;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
@@ -21,9 +22,9 @@ public class GetConnection {
 		
 		return null;
 	}
-	
+	  
 	public static void main(String[] args) {
 		
-		System.out.println(new GetConnection().getH2Instance() != null); 
+		System.out.println(new GetConnection().getH2Instance()); 
 	}
 }

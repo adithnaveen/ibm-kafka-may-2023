@@ -11,7 +11,7 @@ public class UserDAO {
 	
 	public List<User> getAllUsers() {
 		
-		String sql = "select userid, username, useremail, salary from myuser"; 
+		String sql = "select userid, username, useremail, salary from MYUSER";
 		List<User> users= null;
 		try {
 			PreparedStatement ps =
@@ -35,5 +35,12 @@ public class UserDAO {
 		}
 
 		return users; 
+	}
+	
+	public static void main(String[] args) {
+		List<User> allUsers = new UserDAO().getAllUsers();
+		for(User temp : allUsers) {
+			System.out.println(temp.getUserName());
+		}
 	}
 }
