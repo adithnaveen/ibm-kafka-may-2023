@@ -5,6 +5,7 @@ import java.util.List;
 import com.ibm.db.User;
 import com.ibm.db.UserDAO;
 import com.ibm.kafka.KafkaProducer1;
+import com.ibm.selenium.WebJiraUserDetails;
 
 public class App {
 	
@@ -21,5 +22,12 @@ public class App {
 			
 			kp.postMessage(user.getUserId() +", " + user.getUserName()); 
 		}
+		
+		System.out.println("---------------- invoking selenium-----------");
+		
+		WebJiraUserDetails webPage = new WebJiraUserDetails(); 
+		webPage.sendUserNameToJira("naveen@naveenks.com");
+		
+		
 	}
 }
