@@ -345,3 +345,15 @@ id = login-submit
 
 
 
+## spring boot + kafka works 
+
+> https://start.spring.io/#!type=maven-project&language=java&platformVersion=2.7.12&packaging=jar&jvmVersion=11&groupId=com.ibm&artifactId=spring-kafka&name=spring-kafka&description=Demo%20project%20to%20showcase%20spring%20boot%20with%20kafka%20&packageName=com.ibm.spring-kafka&dependencies=web,kafka
+
+```
+    GetMapping, PostMapping, Delete, PutMapping, PatchMapping
+```
+
+
+
+
+
