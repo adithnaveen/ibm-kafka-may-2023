@@ -10,9 +10,10 @@ public class GetConnection {
 	public Connection getH2Instance() {
 		
 		try {
-			Class.forName("org.h2.Driver");
-			String connString ="jdbc:h2:mem:testdb"; 
-			Connection conn =  DriverManager.getConnection(connString + ";DB_CLOSE_DELAY=-1", "sa",""); 
+			Class.forName("com.mysql.cj.jdbc.Driver");
+			String connString ="jdbc:mysql://localhost/ibmdb"; 
+			Connection conn =  DriverManager.getConnection(connString , "root","kanchan@1"); 
+			System.out.println("Connection successfull...");
 			return conn;
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
