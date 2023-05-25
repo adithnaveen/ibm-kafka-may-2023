@@ -272,3 +272,32 @@ first-application topic-with-partition1 2          17              20           
 ```
 
 
+# day 3 
+1. work with kraft 
+    - we are expecting 1000's of topics and clusters to be managed at the same time 
+    - eventually is getting slower + getting registerd as zookeeper which is single point of failure 
+    - 3.x - kraft is available but not production ready 
+    - 4.x - zookeeper will not be there, only kraft this is expected by april 2024
+
+    ```
+        > kafka-storage.sh random-uui 
+        (this will generage UUID)
+        
+        > kafka-storage format -t <UUID> -c ../config/kraft/server.properties 
+
+        > kafka-server-start.sh ../config/kraft/server.properties 
+        
+    ```
+2. work with public data available for kafka and process
+    - https://codepen.io/Krinkle/pen/BwEKgW?editors=1010
+    - https://esjewett.github.io/wm-eventsource-demo/
+3. pull data from external source like DB and send it to kafka (selenium)
+4. testing spring boot application with kafka 
+
+
+
+
+
+
+
+
