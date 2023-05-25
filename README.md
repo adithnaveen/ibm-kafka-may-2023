@@ -280,13 +280,17 @@ first-application topic-with-partition1 2          17              20           
     - 4.x - zookeeper will not be there, only kraft this is expected by april 2024
 
     ```
-        > kafka-storage.sh random-uui 
+        > kafka-storage.sh random-uuid
         (this will generage UUID)
         
         > kafka-storage format -t <UUID> -c ../config/kraft/server.properties 
 
         > kafka-server-start.sh ../config/kraft/server.properties 
+
+        > kafka-console-producer.sh --bootstrap-server localhost:9092 --topic first-topic
         
+        > kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic first-topic
+ 
     ```
 2. work with public data available for kafka and process
     - https://codepen.io/Krinkle/pen/BwEKgW?editors=1010

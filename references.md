@@ -30,6 +30,10 @@ https://learn.microsoft.com/en-us/windows/wsl/basic-commands
 
 
 
+## to install ubuntu with WSL2 
+> https://ubuntu.com/tutorials/install-ubuntu-on-wsl2-on-windows-10#1-overview
+
+
 
 
 
