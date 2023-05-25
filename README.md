@@ -296,7 +296,36 @@ first-application topic-with-partition1 2          17              20           
     - https://codepen.io/Krinkle/pen/BwEKgW?editors=1010
     - https://esjewett.github.io/wm-eventsource-demo/
 3. pull data from external source like DB and send it to kafka (selenium)
+    - 3.1 setup database 
+        - create a table and put some values 
+        - we shall use H2 
+        - java -jar h2.jar 
+
+        ```
+            create table myuser(
+                userid int primary key, 
+                username varchar(25) not null, 
+                useremail varchar(50), 
+                salary int
+            );
+
+            insert into myuser values(1, 'Arun', 'arun@arun.com', 1234); 
+            insert into myuser values(2, 'Deepa', 'deepa@deepa.com', 2233); 
+            insert into myuser values(3, 'Shubhi', 'shubhi@shubhi.com', 3322); 
+
+
+        ```
+    3.2 pull the data from java application with JDBC 
+    3.3 with the data invoked, send it to selenium 
+    3.4 integrate with kafka 
+
 4. testing spring boot application with kafka 
+
+
+## Sink and source 
+> Connectors come in two flavors, source connectors and sink connectors. The connector that takes data from a Producer and feeds them into a topic is called source connector. The connector that takes data from a Topic and delivers them to a Consumer is called Sink Connector.
+
+
 
 
 
